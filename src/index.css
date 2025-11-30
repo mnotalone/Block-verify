@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* BLOCK VERIFY Design System - Blockchain Futuristic Theme */
+    
+    /* Base colors - Deep space blue background */
+    --background: 220 30% 6%;
+    --foreground: 210 40% 98%;
+
+    /* Card surfaces with subtle transparency */
+    --card: 220 25% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary - Neon Green (blockchain trust color) */
+    --primary: 142 76% 50%;
+    --primary-foreground: 220 30% 6%;
+
+    /* Secondary - Electric Blue */
+    --secondary: 215 85% 55%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted surfaces */
+    --muted: 220 20% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - Purple for highlights */
+    --accent: 270 60% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 15%;
+    --ring: 142 76% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 50%) 0%, hsl(170 70% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(215 85% 55%) 0%, hsl(270 60% 60%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 100%);
+    
+    /* Glow effects */
+    --glow-primary: 0 0 40px hsl(142 76% 50% / 0.3);
+    --glow-secondary: 0 0 40px hsl(215 85% 55% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
