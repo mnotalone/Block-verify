@@ -1,73 +1,125 @@
-<!-- # Welcome to your Lovable project
+https://block-verify-mu.vercel.app/
 
-## Project info
+# 📄 Certificate & Document Authenticity Verification System
 
-**URL**: https://lovable.dev/projects/6c7af30a-0657-4b98-9c89-8762a8fa6b05
+A secure web application built to help **organizations, institutions, and companies** verify the **authenticity, originality, and validity** of certificates and digital documents.  
+The platform validates uploaded documents through **hashing, metadata analysis, antiforgery detection**, and optionally **blockchain immutability**.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Overview
 
-**Use Lovable**
+Fake certificates and document forgery have become widespread across universities, companies, and government institutions.  
+This platform provides a **trusted verification environment** enabling:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6c7af30a-0657-4b98-9c89-8762a8fa6b05) and start prompting.
+- Validation of certificate originality  
+- Detection of forged or manipulated documents  
+- Secure uploads and immutable storage  
+- Real-time verification using Certificate ID, QR code, or hash lookup  
+- A dedicated dashboard for institutions to manage certificate issuance and verification requests
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠 Core Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Feature | Description |
+|--------|-------------|
+| **Document Upload & Verification** | PDF/PNG/JPG document upload for integrity scanning |
+| **Unique Certificate ID** | Every verified/issued certificate is assigned a UUID or hash |
+| **Blockchain Fingerprinting (Optional)** | Stores certificate hash on-chain to prevent tampering |
+| **Forgery & Metadata Analysis** | Detects document alteration or duplicate issuance |
+| **Institution/Organization Admin Panel** | Manage uploads, verification logs, users, approvals |
+| **Public Verification Page** | Anyone can enter Certificate ID or scan QR to verify |
+| **Audit Trail & Activity Log** | Track every verification check and admin action |
+| **REST API / Webhooks** | Integration for external websites or school portals |
+| **Downloadable Validation Report** | PDF proof of verification for record keeping |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🔐 Technology Architecture
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+┌──────────────────────────┐ ┌─────────────────────────┐
+│ Frontend (React/NextJS) │ ---> │ Backend API (Node/Django)│
+└──────────────────────────┘ └─────────────────────────┘
+│ │
+▼ ▼
+┌──────────────┐ ┌─────────────────┐
+│ File Storage │ │ Database (SQL/NoSQL) │
+└──────────────┘ └─────────────────┘
+│ │
+▼ ▼
+┌──────────────────┐ ┌────────────────────────┐
+│ Document Hashing │ │ Blockchain Ledger (Opt)│
+└──────────────────┘ └────────────────────────┘
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🎨 UI/UX Design Guide
 
-**Edit a file directly in GitHub**
+### Recommended Color Palette
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Color | Usage |
+|---|---|
+| `#0A74DA` Blue | Primary brand, trust-focused CTA/UI |
+| `#0F172A` Dark Slate | Headings & deep background |
+| `#14B8A6` Teal | Success state, verification pass |
+| `#EF4444` Red | Invalid/Tampered document alerts |
+| `#F8FAFC` Light Gray/White | Cards, section backgrounds |
 
-**Use GitHub Codespaces**
+### Page Layouts & Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Page | Sections Included |
+|---|---|
+| **Landing/Home** | Hero, mission statement, CTA buttons, how it works, footer |
+| **Upload/Verify Page** | File input, drag-drop upload, Cert-ID/QR scan validation |
+| **Dashboard (Admin)** | Cert list, add/upload cert, verification history, analytics |
+| **Verification Result Page** | Document preview, hash match result, status badge |
+| **API Access Page** | Generate keys, usage guide, webhook settings |
+| **Support** | FAQs, contact form, documentation |
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📍 Workflow
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Admin/Institution logs into dashboard.  
+2. Uploads a certificate document (PDF/JPG/PNG).  
+3. System generates **hash + certificate ID + optional blockchain record**.  
+4. Student/employee presents Cert-ID/QR to verifier.  
+5. Verifier enters ID or uploads document to cross-check hash.  
+6. System returns result:
 
-## How can I deploy this project?
+| State | Meaning |
+|---|---|
+| 🟢 **Authentic** | Original document, hash and metadata valid |
+| 🟡 **Inconclusive** | Partial mismatch, needs manual review |
+| 🔴 **Invalid/Tampered** | Forged or altered certificate detected |
 
-Simply open [Lovable](https://lovable.dev/projects/6c7af30a-0657-4b98-9c89-8762a8fa6b05) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 🧰 Tech Stack (Editable Per Implementation)
 
-Yes, you can!
+| Layer | Technologies |
+|---|---|
+| **Frontend** | React, Next.js, TailwindCSS |
+| **Backend** | Node.js (Express/Nest) / Python (Django/FastAPI) |
+| **Database** | PostgreSQL / MongoDB |
+| **Hashing Algorithm** | SHA-256 / SHA-512 |
+| **Blockchain Option** | Ethereum, Polygon, Hyperledger Fabric |
+| **Document Parsing** | OCR — Tesseract / OpenCV / ML Models |
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain) -->
+## 🧪 Installation & Setup
+
+```bash
+# clone repository
+git clone https://github.com/mnotalone/Block-verify.git
+
+cd Block-verify
+
+# install backend dependencies
+npm install   # or pip install -r requirements.txt
+
+# start backend server
+npm run dev   # or python manage.py runserver
