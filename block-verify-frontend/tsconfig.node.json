@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "resolvePackageJsonExports": false,
+    "resolvePackageJsonImports": false,
+    "types": ["node"],
+    "noEmit": true
+  },
+  "include": ["vite.config.ts"]
+}

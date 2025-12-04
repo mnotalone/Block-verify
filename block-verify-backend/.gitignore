@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+
+# Certificates and QR codes (generated files)
+certificates/
+qrcodes/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
