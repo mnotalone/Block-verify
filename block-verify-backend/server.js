@@ -10,9 +10,17 @@ connectDB();
 
 const app = express();
 
-// CORS Configuration
+// CORS Configuration: allow local dev URLs and an optional FRONTEND_URL env var
+const allowedOrigins = [process.env.FRONTEND_URL, 'http://localhost:8080', 'http://localhost:5173'].filter(Boolean);
 app.use(cors({
-  origin: ['http://localhost:8080', 'http://localhost:5173'],
+  origin: function(origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    }
+    return callback(new Error('CORS policy: Origin not allowed'));
+  },
   credentials: true
 }));
 

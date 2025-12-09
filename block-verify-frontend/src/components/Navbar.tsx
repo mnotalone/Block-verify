@@ -68,22 +68,20 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/login">
-              <Button
-                variant="ghost"
-                className="text-foreground hover:text-primary border border-transparent rounded-xl transition-all duration-300 hover:border-primary hover:rounded-tr-none"
-              >
-                Login
-              </Button>
-            </Link>
+            <Button
+              asChild
+              variant="ghost"
+              className="text-foreground hover:text-primary border border-transparent rounded-xl transition-all duration-300 hover:border-primary hover:rounded-tr-none"
+            >
+              <Link to="/login">Login</Link>
+            </Button>
 
-            <Link to="/get-started">
-              <Button
-                className="bg-primary text-primary-foreground border border-transparent rounded-xl transition-all duration-300 hover:bg-primary/90 hover:border-primary hover:rounded-tl-none"
-              >
-                Get Started
-              </Button>
-            </Link>
+            <Button
+              asChild
+              className="bg-primary text-primary-foreground border border-transparent rounded-xl transition-all duration-300 hover:bg-primary/90 hover:border-primary hover:rounded-tl-none"
+            >
+              <Link to="/get-started">Get Started</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -116,17 +114,13 @@ const Navbar = () => {
               })}
 
               <div className="flex flex-col gap-2 px-4 pt-4 border-t border-border">
-                <Link to="/login">
-                  <Button variant="ghost" className="w-full">
-                    Login
-                  </Button>
-                </Link>
+                <Button asChild variant="ghost" className="w-full">
+                  <Link to="/login">Login</Link>
+                </Button>
 
-                <Link to="/get-started">
-                  <Button className="w-full bg-primary text-primary-foreground">
-                    Get Started
-                  </Button>
-                </Link>
+                <Button asChild className="w-full bg-primary text-primary-foreground">
+                  <Link to="/get-started">Get Started</Link>
+                </Button>
               </div>
             </div>
           </div>

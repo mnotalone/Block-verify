@@ -117,25 +117,27 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link to="/get-started">
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/50 transition-all group"
-                >
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/50 transition-all group"
+              >
+                <Link to="/get-started">
                   <Upload className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Get Started
-                </Button>
-              </Link>
-              <Link to="/verify">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary/50 text-primary hover:bg-primary/10"
-                >
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary/50 text-primary hover:bg-primary/10"
+              >
+                <Link to="/verify">
                   <CheckCircle2 className="w-5 h-5 mr-2" />
                   Verify Certificate
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
             {/* Stats */}
