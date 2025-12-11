@@ -1,11 +1,12 @@
 const express = require("express");
 const cors = require("cors");  // ← Should only appear ONCE
 const dotenv = require("dotenv");
+
+dotenv.config();
+
 const connectDB = require("./config/db");
 const certificateRoutes = require("./routes/certificateRoutes");
 const blockchainRoutes = require("./routes/blockchainRoutes");
-
-dotenv.config();
 connectDB();
 
 const app = express();
