@@ -14,6 +14,7 @@ import CreateCertificate from './pages/CreateCertificate';
 import Dashboard from './pages/Dashboard';
 import BlockchainExplorer from './pages/BlockchainExplorer';
 import Statistics from './pages/Statistics';
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToHash />
+        <ScrollToTopButton />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/get-started" element={<GetStarted />} />
