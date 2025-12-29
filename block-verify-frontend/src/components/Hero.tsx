@@ -1,31 +1,34 @@
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { animate, motion, useInView, useMotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Upload } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // Counter animation hook
-const useCountUp = (end: number, duration: number = 2) => {
+const useCountUp = (end: number, shouldStart: boolean, duration: number = 2) => {
   const nodeRef = useRef<HTMLDivElement>(null);
   const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: duration * 1000 });
-  const isInView = useInView(nodeRef, { once: true, margin: "-100px" });
+  const decimals = end % 1 !== 0 ? 1 : 0;
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(end);
-    }
-  }, [isInView, end, motionValue]);
+    if (!shouldStart) return;
+
+    const controls = animate(motionValue, end, {
+      duration,
+      ease: "easeOut",
+    });
+
+    return () => controls.stop();
+  }, [shouldStart, motionValue, end, duration]);
 
   useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
+    const unsubscribe = motionValue.on("change", (latest) => {
       if (nodeRef.current) {
-        const value = latest.toFixed(end % 1 !== 0 ? 1 : 0);
-        nodeRef.current.textContent = value;
+        nodeRef.current.textContent = latest.toFixed(decimals);
       }
     });
-    return unsubscribe;
-  }, [springValue, end]);
+    return () => unsubscribe();
+  }, [motionValue, decimals]);
 
   return nodeRef;
 };
@@ -202,12 +205,15 @@ const Hero = () => {
 
 // Stats Section Component with Count-up Animation
 const StatsSection = () => {
-  const count1Ref = useCountUp(50);
-  const count2Ref = useCountUp(200);
-  const count3Ref = useCountUp(99.9);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-50px" });
+  const count1Ref = useCountUp(500, isInView);
+  const count2Ref = useCountUp(200, isInView);
+  const count3Ref = useCountUp(99.9, isInView);
 
   return (
     <motion.div
+      ref={containerRef}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6 }}

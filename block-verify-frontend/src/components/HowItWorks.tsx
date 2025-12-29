@@ -97,20 +97,18 @@ const HowItWorks = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-card/50 backdrop-blur-sm border border-border rounded-full px-8 py-4">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-medium">Certificate Hash</span>
+          <div className="flex flex-nowrap items-center justify-center gap-2 sm:gap-4 bg-card/50 backdrop-blur-sm border border-border rounded-2xl sm:rounded-full px-4 sm:px-8 py-3 max-w-[calc(100vw-2rem)] sm:max-w-xl mx-auto">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 bg-primary rounded-full animate-pulse" />
+              <span className="text-[11px] sm:text-sm font-medium">Certificate Hash</span>
             </div>
-            <span className="text-muted-foreground">→</span>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-secondary rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
-              <span className="text-sm font-medium">Blockchain</span>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 bg-secondary rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
+              <span className="text-[11px] sm:text-sm font-medium">Blockchain</span>
             </div>
-            <span className="text-muted-foreground">→</span>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-accent rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
-              <span className="text-sm font-medium">Verified ✓</span>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 bg-accent rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+              <span className="text-[11px] sm:text-sm font-medium">Verified ✓</span>
             </div>
           </div>
         </motion.div>
